@@ -23,11 +23,12 @@
 const AD_NODE_SELECTOR =
   "iframe[src*='ad'], [id*='ad'], [id*='gg'], [class*=' ad'], [class^='ad'], [class*='advert']";
 const SKIP_BTN_SELECTOR = ".btn-skip, .skip, .continue, .next, .start-btn";
-const SKIP_TEXT_PATTERN = /跳过|继续|开始游戏/i;
+const AD_KEYWORD_PATTERN = /(^|[\s_-])(ad|ads|advert|advertisement|gg)([\s_-]|$)/;
+const SKIP_TEXT_PATTERN = /跳过|继续|开始游戏/;
 
 const adNodes = [...document.querySelectorAll(AD_NODE_SELECTOR)].filter((el) => {
   const text = `${el.id || ""} ${el.className || ""} ${el.getAttribute("src") || ""}`.toLowerCase();
-  return /(^|[\s_-])(ad|ads|advert|advertisement|gg)([\s_-]|$)/.test(text);
+  return AD_KEYWORD_PATTERN.test(text);
 });
 adNodes.forEach((el) => el.remove());
 const skipBtn = [...document.querySelectorAll(SKIP_BTN_SELECTOR)].find((el) =>
