@@ -14,5 +14,16 @@ https://www.4399.com/flash/235691_4.htm
 ## 使用说明
 
 1. 打开上方游戏链接。
-2. 在出现广告无法播放、无法继续时，使用本项目提供的方法进行跳过。
-3. 返回游戏，正常开始或继续游玩。
+2. 在出现广告无法播放、无法继续时，按 `F12` 打开开发者工具，切换到 **Console**。
+3. 粘贴并执行下面这段脚本（用于尝试移除常见广告层并点击“跳过/继续”按钮）：
+
+```javascript
+document.querySelectorAll("iframe, #ad, .ad, [class*='ad']").forEach((el) => el.remove());
+const skipBtn = [...document.querySelectorAll("a,button")].find((el) =>
+  /跳过|继续|开始游戏/.test((el.textContent || "").trim())
+);
+if (skipBtn) skipBtn.click();
+```
+
+4. 如果页面结构变化导致未生效，请刷新后重试，或手动点击页面中的“跳过/继续”按钮。
+5. 返回游戏，正常开始或继续游玩。
