@@ -4,7 +4,7 @@
 
 ## 游戏地址
 
-[4399 萌版泡泡堂8](https://www.4399.com/flash/235691_4.htm)
+[点击此处进入 4399 萌版泡泡堂8](https://www.4399.com/flash/235691_4.htm)
 
 ## 功能说明
 
@@ -22,11 +22,12 @@ document
   .querySelectorAll("iframe[src*='ad'], #ad, [id^='ad_'], .ad, .ads, .advert, .advertisement")
   .forEach((el) => el.remove());
 const skipBtn = [...document.querySelectorAll(".btn-skip, .skip, .continue, .next, .start-btn")].find((el) =>
-  /跳过|继续|开始游戏/.test((el.textContent || "").trim())
+  /跳过|继续|开始游戏/i.test((el.textContent || "").trim())
 );
 if (skipBtn) skipBtn.click();
 ```
 
 4. 如果页面结构变化导致未生效，请刷新后重试，或手动点击页面中的“跳过/继续”按钮。
    > 提示：网页结构可能变化，脚本是通用兜底方案，必要时请按页面实际元素调整选择器。
+   > 注意：脚本会移除部分疑似广告元素，可能影响页面局部布局或功能。
 5. 返回游戏，正常开始或继续游玩。
