@@ -4,7 +4,7 @@
 
 ## 游戏地址
 
-https://www.4399.com/flash/235691_4.htm
+[4399 萌版泡泡堂8](https://www.4399.com/flash/235691_4.htm)
 
 ## 功能说明
 
@@ -21,7 +21,7 @@ https://www.4399.com/flash/235691_4.htm
 document
   .querySelectorAll("iframe[src*='ad'], #ad, [id^='ad_'], .ad, .ads, .advert, .advertisement")
   .forEach((el) => el.remove());
-const skipBtn = [...document.querySelectorAll(".btn-skip, .skip, .continue, a, button")].find((el) =>
+const skipBtn = [...document.querySelectorAll(".btn-skip, .skip, .continue, .next, .start-btn")].find((el) =>
   /跳过|继续|开始游戏/.test((el.textContent || "").trim())
 );
 if (skipBtn) skipBtn.click();
